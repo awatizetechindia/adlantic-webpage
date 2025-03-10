@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-// import { X } from "lucide-react";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
@@ -8,20 +7,10 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (isOpen) {
-        setIsOpen(false);
-      }
-    };
+    const handleScroll = () => isOpen && setIsOpen(false);
+    const handleRouteChange = () => setIsOpen(false);
 
-    const handleRouteChange = () => {
-      setIsOpen(false);
-    };
-
-    if (isOpen) {
-      window.addEventListener("scroll", handleScroll);
-    }
-
+    if (isOpen) window.addEventListener("scroll", handleScroll);
     window.addEventListener("popstate", handleRouteChange);
 
     return () => {
@@ -31,101 +20,48 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <nav className="bg-white fixed z-20 w-full p-3 flex justify-between items-center border-b-8 border-blue-600">
+    <nav className="bg-white fixed z-50 w-full p-4 flex justify-between items-center border-b-8 border-blue-600">
+      {/* Logo */}
       <Link href="/" onClick={() => setIsOpen(false)}>
-        <Image src="/adlantic.svg" alt="Adlantic" width={72} height={72} />
+        <Image src="/adlantic.svg" alt="Adlantic" width={60} height={60} />
       </Link>
 
-      <button className="" onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? (
-          // <X className="text-blue-900 h-24 w-24" />
-          <p className="text-primary text-6xl font-black">Close</p>
-        ) : (
-          <p className="text-primary text-6xl font-black">Menu</p>
-        )}
+      {/* Menu Toggle Button */}
+      <button
+        className="text-primary text-4xl sm:text-5xl font-black focus:outline-none"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-expanded={isOpen}
+      >
+        {isOpen ? "Close" : "Menu"}
       </button>
 
+      {/* Navigation Overlay */}
       <div
-        className={`fixed z-10 top-[104px] right-0 w-full h-[calc(100vh-96px)] bg-white transform transition-all duration-500 ease-out ${
+        className={`fixed top-0 left-0 w-full h-full bg-white transition-transform duration-500 ${
           isOpen ? "translate-x-0 opacity-100" : "translate-x-full opacity-0"
         }`}
       >
-        {/* Navigation Grid */}
-        <div className="p-12 pt-20 max-w-7xl mx-auto grid grid-cols-3 gap-8">
-          {/* Career Section */}
-          <Link
-            href="/careers"
-            onClick={() => setIsOpen(false)}
-            className="space-y-6 rounded-lg bg-white border-primary border-8  hover:scale-105  transition-all duration-300"
-          >
-            <div className="flex flex-col items-center justify-center p-6">
-              <Image
-                src="/assets/line-art-of-trust.png"
-                alt="Career Top"
-                width={200}
-                height={200}
-                className="mb-4"
-              />
-              <h2 className="text-4xl font-bold text-blue-600">Career</h2>
-              <Image
-                src="/assets/people-explaining-on-white-board.png"
-                alt="Career Bottom"
-                width={200}
-                height={200}
-                className="mt-4"
-              />
-            </div>
-          </Link>
-
-          {/* Support Section */}
-          <Link
-            href="/support"
-            onClick={() => setIsOpen(false)}
-            className="space-y-6 rounded-lg bg-white border-primary border-8  hover:scale-105  transition-all duration-300"
-          >
-            <div className="flex flex-col items-center justify-center p-6">
-              <Image
-                src="/assets/flowers.png"
-                alt="Support Top"
-                width={200}
-                height={200}
-                className="mb-4"
-              />
-              <h2 className="text-4xl font-bold text-blue-600">Support</h2>
-              <Image
-                src="/assets/line-art-of-people-in-office.png"
-                alt="Support Bottom"
-                width={200}
-                height={200}
-                className="mt-4"
-              />
-            </div>
-          </Link>
-
-          {/* About Section */}
-          <Link
-            href="/about"
-            onClick={() => setIsOpen(false)}
-            className="space-y-6 rounded-lg bg-white border-primary border-8  hover:scale-105  transition-all duration-300"
-          >
-            <div className="flex flex-col items-center justify-center p-6">
-              <Image
-                src="/assets/line-art-of-support-team.png"
-                alt="About Top"
-                width={200}
-                height={200}
-                className="mb-4"
-              />
-              <h2 className="text-4xl font-bold text-blue-600">About</h2>
-              <Image
-                src="/assets/line-art-of-people-in-office.png"
-                alt="About Bottom"
-                width={200}
-                height={200}
-                className="mt-4"
-              />
-            </div>
-          </Link>
+        <div className="flex flex-col items-center justify-center h-full p-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl w-full mx-auto">
+            {[
+              { href: "/careers", title: "Career", imgTop: "line-art-of-trust.png", imgBottom: "people-explaining-on-white-board.png" },
+              { href: "/support", title: "Support", imgTop: "flowers.png", imgBottom: "line-art-of-people-in-office.png" },
+              { href: "/about", title: "About", imgTop: "line-art-of-support-team.png", imgBottom: "line-art-of-people-in-office.png" },
+            ].map(({ href, title, imgTop, imgBottom }, index) => (
+              <Link
+                key={index}
+                href={href}
+                onClick={() => setIsOpen(false)}
+                className="space-y-4 bg-white border-primary border-8 rounded-lg p-6 hover:scale-105 transition-transform"
+              >
+                <div className="flex flex-col items-center">
+                  <Image src={`/assets/${imgTop}`} alt={`${title} Top`} width={150} height={150} className="mb-4" />
+                  <h2 className="text-3xl font-bold text-blue-600">{title}</h2>
+                  <Image src={`/assets/${imgBottom}`} alt={`${title} Bottom`} width={150} height={150} className="mt-4" />
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </nav>
