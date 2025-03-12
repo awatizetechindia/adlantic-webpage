@@ -7,7 +7,7 @@ import { TextureLoader } from "three";
 import { OrbitControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
-export default function index() {
+export default function CubeComponent() {
   // Add responsive state to track viewport size
   const [cubeSize, setCubeSize] = useState(3.6);
 
