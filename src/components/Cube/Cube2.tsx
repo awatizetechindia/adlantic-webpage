@@ -8,11 +8,41 @@ import { OrbitControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
 export default function index() {
+  // Add responsive state to track viewport size
+  const [cubeSize, setCubeSize] = useState(3.6);
+
+  // Update cube size based on window width
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        // Mobile
+        setCubeSize(3.6);
+      } else if (window.innerWidth < 1024) {
+        // Tablet
+        setCubeSize(3.6);
+      } else {
+        // Desktop
+        setCubeSize(3.6);
+      }
+    };
+
+    // Set initial size
+    handleResize();
+
+    // Add event listener
+    window.addEventListener("resize", handleResize);
+
+    // Clean up
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <div className={`${styles.main}`}>
+    <div
+      className={`${styles.main} w-full h-[300px] sm:h-[400px] md:h-[500px]`}
+    >
       {/* <h1 className="text-7xl font-bold text-center">Adlantic</h1> */}
       <Canvas>
-        <Cube />
+        <Cube size={cubeSize} />
         <OrbitControls
           enableZoom={false}
           enablePan={false}
@@ -26,7 +56,7 @@ export default function index() {
   );
 }
 
-const Cube = () => {
+const Cube = ({ size = 3.6 }) => {
   const mesh = useRef<Mesh>(null);
   const [targetRotation, setTargetRotation] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -65,7 +95,7 @@ const Cube = () => {
 
   return (
     <mesh ref={mesh} position={[0, 0, 0]}>
-      <boxGeometry args={[3.6, 3.6, 3.6]} />
+      <boxGeometry args={[size, size, size]} />
       <meshStandardMaterial map={texture_2} attach="material-0" />
       <meshStandardMaterial map={texture_3} attach="material-1" />
       <meshStandardMaterial map={texture_3} attach="material-2" />
