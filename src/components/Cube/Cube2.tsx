@@ -16,7 +16,7 @@ export default function CubeComponent() {
     const handleResize = () => {
       if (window.innerWidth < 640) {
         // Mobile
-        setCubeSize(3.6);
+        setCubeSize(3.8);
       } else if (window.innerWidth < 1024) {
         // Tablet
         setCubeSize(3.6);
