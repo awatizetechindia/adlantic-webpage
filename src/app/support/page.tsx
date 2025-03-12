@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import BlogCard from "@/components/BlogCard";
 const TransformSection = () => {
   return (
-    <div className="bg-primary text-white text-center py-12">
+    <div className="bg-primary text-white text-center py-2 md:py-8">
       <h2 className="text-5xl font-bold mb-4">
         Ready to Transform Your Digital Presence?
       </h2>
@@ -43,10 +43,10 @@ const blogData = [
 
 const Page = () => {
   return (
-    <div className="px-12 py-8">
-      <div className="py-8">
+    <div className="px-2 md:px-12 py-2 md:py-8">
+      <div className="py-2 md:py-8">
         <div className="border-4 border-primary text-center p-12">
-          <h2 className="text-7xl font-bold text-primary pb-8">
+          <h2 className="text-5xl md:text-7xl font-bold text-primary pb-8">
             Ready to Grow Your Business?
           </h2>
           <p className="text-2xl font-medium text-primary px-4 max-w-4xl mx-auto">
@@ -56,11 +56,11 @@ const Page = () => {
         </div>
       </div>
 
-      <div className="py-8">
+      <div className="py-2 md:py-8">
         <ContactForm />
       </div>
 
-      <div className="py-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="py-2 md:py-8 grid grid-cols-1 md:grid-cols-3 gap-4">
         {blogData.map((blog, index) => (
           <BlogCard
             key={index}
@@ -71,15 +71,17 @@ const Page = () => {
           />
         ))}
       </div>
-      <div className="py-8">
+      <div className="py-2 md:py-8">
         <TransformSection />
       </div>
-      <div className="py-8">
-        <div className="border-4 border-primary text-center p-12">
-          <h1 className="text-8xl font-bold text-primary">AdLantic</h1>
+      <div className="py-2 md:py-8">
+        <div className="border-4 border-primary text-center py-12 md:p-12">
+          <h1 className="text-6xl md:text-8xl font-bold text-primary">
+            AdLantic
+          </h1>
         </div>
       </div>
-      <div className="py-8">
+      <div className="py-2 md:py-8">
         <Footer />
       </div>
     </div>

@@ -66,9 +66,9 @@ const cultureBlocks2 = [
 
 const page = () => {
   return (
-    <div className="px-12 py-8">
+    <div className="px-2 md:px-12 py-2 md:py-8">
       <HeroSection />
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 py-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-2 md:py-8">
         {cultureBlocks.map((block, index) => (
           <CultureBlock
             key={index}
@@ -79,14 +79,14 @@ const page = () => {
           />
         ))}
       </div>
-      <div className="py-8">
+      <div className="py-2 md:py-8">
         <div className="bg-primary py-16">
           <h1 className="text-6xl font-bold text-white container  text-center ">
             Why choose AdLantic?
           </h1>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 py-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 py-2 md:py-8">
         {cultureBlocks2.map((block, index) => (
           <CultureBlock
             key={index}
@@ -109,8 +109,10 @@ const page = () => {
         </div>
       </div>
       <div className="py-8">
-        <div className="border-4 border-primary text-center p-12">
-          <h1 className="text-8xl font-bold text-primary">AdLantic</h1>
+        <div className="border-4 border-primary text-center py-12 md:p-12">
+          <h1 className="text-6xl md:text-8xl font-bold text-primary">
+            AdLantic
+          </h1>
         </div>
       </div>
       <div className="py-8">

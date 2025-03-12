@@ -28,57 +28,67 @@ const caseStudies = [
 
 const page = () => {
   return (
-    <div className="px-12">
-      <div className="py-8">
+    <div className="px-4 sm:px-6 md:px-8 lg:px-12">
+      <div className="py-4 sm:py-6 md:py-8">
         <HeroSection />
       </div>
-      <div className="flex justify-between gap-20 py-8">
-        <div className="border-primary border-4 p-8 text-primary text-2xl">
-          <h1 className="text-4xl font-bold pb-4">Our Mission</h1>
-          <p className="text-2xl font-medium">
-            To transform digital marketing through innovation and
-            intelligence,empowering businesses with data-driven strategies that
-            maximize performance and growth.
+
+      {/* Mission and Vision - Stack on mobile, side by side on larger screens */}
+      <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-10 lg:gap-20 py-4 sm:py-6 md:py-8">
+        <div className="border-primary border-2 sm:border-4 p-4 sm:p-6 md:p-8 text-primary text-lg sm:text-xl md:text-2xl w-full">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold pb-2 sm:pb-3 md:pb-4">
+            Our Mission
+          </h1>
+          <p className="text-lg sm:text-xl md:text-2xl font-medium">
+            To transform digital marketing through innovation and intelligence,
+            empowering businesses with data-driven strategies that maximize
+            performance and growth.
           </p>
         </div>
-        <div className="bg-primary border-primary border-4 p-8 text-white text-2xl">
-          <h1 className="text-4xl font-bold pb-4">Our Vision</h1>
-          <p className="text-2xl font-medium">
+        <div className="bg-primary border-primary border-2 sm:border-4 p-4 sm:p-6 md:p-8 text-white text-lg sm:text-xl md:text-2xl w-full">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold pb-2 sm:pb-3 md:pb-4">
+            Our Vision
+          </h1>
+          <p className="text-lg sm:text-xl md:text-2xl font-medium">
             To be the global leader in performance-driven marketing, setting new
             benchmarks for transparency, efficiency, and client success through
             advanced technology and strategic expertise.
           </p>
         </div>
       </div>
-      <div className="py-8">
-        <div className="bg-primary py-16 text-6xl text-center font-bold text-white border-primary">
+
+      <div className="py-4 sm:py-6 md:py-8">
+        <div className="bg-primary py-6 sm:py-10 md:py-16 text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center font-bold text-white border-primary">
           What Makes Us Different
         </div>
       </div>
 
-      <div className="py-8">
+      <div className="py-4 sm:py-6 md:py-8">
         <Stuff />
       </div>
-      <div className="py-8">
-        <div className="bg-primary py-16 text-6xl text-center font-bold text-white border-primary">
+
+      <div className="py-4 sm:py-6 md:py-8">
+        <div className="bg-primary py-6 sm:py-10 md:py-16 text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center font-bold text-white border-primary">
           About Adlantic
         </div>
       </div>
-      <div className="py-8">
+
+      <div className="py-4 sm:py-6 md:py-8">
         <AboutAdlanticStats />
       </div>
 
-      <div className="py-8">
-        <div className="bg-primary py-16 px-8 text-6xl  font-bold text-white border-primary">
-          <h1 className="pb-4">Success Stories</h1>
-
-          <p className="text-3xl font-medium text-white">
+      <div className="py-4 sm:py-6 md:py-8">
+        <div className="bg-primary py-6 sm:py-10 md:py-16 px-4 sm:px-6 md:px-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white border-primary">
+          <h1 className="pb-2 sm:pb-3 md:pb-4">Success Stories</h1>
+          <p className="text-xl sm:text-2xl md:text-3xl font-medium text-white">
             See how we&apos;ve helped businesses achieve extraordinary results
             through innovative digital strategies.
           </p>
         </div>
       </div>
-      <div className="py-8 grid grid-cols-3 gap-4">
+
+      {/* Case studies - 1 column on mobile, 2 on tablet, 3 on desktop */}
+      <div className="py-4 sm:py-6 md:py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {caseStudies.map((study, index) => (
           <CaseStudy
             key={index}
@@ -89,32 +99,36 @@ const page = () => {
           />
         ))}
       </div>
-      <div className="py-8">
-        <div className="p-8 md:px-[290px] bg-primary text-white">
-          <h1 className="text-6xl font-bold pb-10">
+
+      <div className="py-4 sm:py-6 md:py-8">
+        <div className="p-4 sm:p-6 md:p-8 bg-primary text-white">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold pb-4 sm:pb-6 md:pb-10">
             Ready to start your journey?
           </h1>
-          <p className="font-medium text-3xl pb-10">
+          <p className="font-medium text-xl sm:text-2xl md:text-3xl pb-4 sm:pb-6 md:pb-10">
             Let AdLantic be your partner in success. Together, we&apos;ll turn
             ideas into action and strategies into stories worth celebrating.
           </p>
-          <div className="w-full flex justify-between">
-            <div className="bg-white text-primary px-6 py-3 font-bold text-4xl">
-              {" "}
+          <div className="w-full flex flex-col sm:flex-row gap-4 sm:justify-between">
+            <div className="bg-white text-primary px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-3 font-bold text-2xl sm:text-3xl md:text-4xl">
               Contact Us &gt;
             </div>
-            <div className="bg-primary border-white border-4 text-white font-bold text-4xl px-6 py-3">
+            <div className="bg-primary border-white border-2 sm:border-4 text-white font-bold text-2xl sm:text-3xl md:text-4xl px-4 py-2 sm:px-5 sm:py-3 md:px-6 md:py-3">
               View Services &gt;
             </div>
           </div>
         </div>
       </div>
-      <div className="py-8">
-        <div className="border-4 border-primary text-center p-12">
-          <h1 className="text-8xl font-bold text-primary">AdLantic</h1>
+
+      <div className="py-4 sm:py-6 md:py-8">
+        <div className="border-2 sm:border-4 border-primary text-center p-6 sm:p-8 md:p-12">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-primary">
+            AdLantic
+          </h1>
         </div>
       </div>
-      <div className="py-8">
+
+      <div className="py-4 sm:py-6 md:py-8">
         <Footer />
       </div>
     </div>

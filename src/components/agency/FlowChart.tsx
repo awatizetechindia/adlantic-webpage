@@ -22,6 +22,14 @@ const FlowChart: React.FC = () => {
             alt="Right arrow"
             className="hidden md:block absolute top-1/2 -right-10 -translate-y-1/2 -rotate-90"
           />
+          {/* Down Arrow */}
+          <Image
+            src="/arrow.svg"
+            width={30}
+            height={10}
+            alt="Down arrow"
+            className="md:hidden scale-75 absolute -bottom-10 left-1/2 -translate-x-1/2"
+          />
         </div>
 
         <div className="relative bg-white p-6">
@@ -41,6 +49,14 @@ const FlowChart: React.FC = () => {
             alt="Right arrow"
             className="hidden md:block absolute top-1/2 -right-10 -translate-y-1/2 -rotate-90"
           />
+          {/* Down Arrow */}
+          <Image
+            src="/arrow.svg"
+            width={30}
+            height={10}
+            alt="Down arrow"
+            className="md:hidden scale-75 absolute -bottom-10 left-1/2 -translate-x-1/2"
+          />
         </div>
 
         <div className="relative bg-white p-6">
@@ -58,7 +74,15 @@ const FlowChart: React.FC = () => {
             width={30}
             height={10}
             alt="Down arrow"
-            className="absolute -bottom-10 left-1/2 -translate-x-1/2"
+            className="hidden md:block absolute -bottom-10 left-1/2 -translate-x-1/2"
+          />
+          {/* Down Arrow */}
+          <Image
+            src="/arrow.svg"
+            width={30}
+            height={10}
+            alt="Down arrow"
+            className="md:hidden scale-75 absolute -bottom-10 left-1/2 -translate-x-1/2"
           />
         </div>
 
@@ -72,6 +96,22 @@ const FlowChart: React.FC = () => {
             <li>Best-performing campaigns</li>
             <li>User demographics</li>
           </ul>
+          {/* left Arrow */}
+          <Image
+            src="/arrow.svg"
+            width={30}
+            height={10}
+            alt="Down arrow"
+            className="hidden md:block absolute -bottom-10 left-1/2 -translate-x-1/2"
+          />
+          {/* Down Arrow */}
+          <Image
+            src="/arrow.svg"
+            width={30}
+            height={10}
+            alt="Down arrow"
+            className="md:hidden scale-75 absolute -bottom-10 left-1/2 -translate-x-1/2"
+          />
         </div>
 
         <div className="relative bg-white p-6">
@@ -82,6 +122,22 @@ const FlowChart: React.FC = () => {
             <li>Choose traffic sources (SEO, PPC, Social Media)</li>
             <li>Optimize based on ROI</li>
           </ul>
+          {/* left Arrow */}
+          <Image
+            src="/arrow.svg"
+            width={30}
+            height={10}
+            alt="Right arrow"
+            className="hidden md:block absolute top-1/2 -left-10 -translate-y-1/2 rotate-90"
+          />
+          {/* Down Arrow */}
+          <Image
+            src="/arrow.svg"
+            width={30}
+            height={10}
+            alt="Down arrow"
+            className="md:hidden scale-75 absolute -bottom-10 left-1/2 -translate-x-1/2"
+          />
         </div>
 
         <div className="relative bg-white p-6">
@@ -93,10 +149,26 @@ const FlowChart: React.FC = () => {
             <li>Conversion tracking</li>
             <li>Click-through rates (CTR), impressions</li>
           </ul>
+          {/* left Arrow */}
+          <Image
+            src="/arrow.svg"
+            width={30}
+            height={10}
+            alt="Right arrow"
+            className="hidden md:block absolute top-1/2 -left-10 -translate-y-1/2 rotate-90"
+          />
+          {/* Down Arrow */}
+          <Image
+            src="/arrow.svg"
+            width={30}
+            height={10}
+            alt="Down arrow"
+            className="md:hidden scale-75 absolute -bottom-10 left-1/2 -translate-x-1/2"
+          />
         </div>
 
         {/* Third Row */}
-        <div className="bg-white p-6">
+        <div className="relative bg-white p-6">
           <h3 className="bg-primary text-white p-2 mb-4 text-center font-black text-xl sm:text-2xl md:text-3xl">
             Payout & Earnings
           </h3>
