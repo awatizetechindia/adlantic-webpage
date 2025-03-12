@@ -29,11 +29,11 @@ export default function Achievements() {
   );
 
   return (
-    <div className="border-primary border-4">
-      <div className="flex flex-col md:flex-row gap-8">
+    <div className="border-primary border-4 p-4 sm:p-8">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-12">
         {/* Featured Image */}
-        <div className="w-full flex flex-1 md:w-[52.5%]">
-          <div className="aspect-[4/3] relative border-[3px] border-primary bg-primary overflow-hidden">
+        <div className="w-full lg:w-1/2">
+          <div className="aspect-[4/3] relative border-4 border-primary bg-primary overflow-hidden">
             <Image
               src={selectedAchievement.imageUrl}
               alt={selectedAchievement.title}
@@ -44,15 +44,15 @@ export default function Achievements() {
         </div>
 
         {/* Grid of Thumbnails */}
-        <div className="w-full md:w-[45.5%] p-4 md:p-8">
-          <h1 className="text-4xl md:text-6xl font-black text-primary text-center pb-4 md:pb-8">
+        <div className="w-full lg:w-1/2">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-primary text-center pb-6">
             Achievements
           </h1>
-          <div className="grid grid-cols-4 gap-2 md:gap-4">
+          <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-4">
             {achievements.map((achievement) => (
               <div
                 key={achievement.id}
-                className={`aspect-[1] cursor-pointer transition-all duration-300 relative bg-primary border-4 border-primary`}
+                className="aspect-square cursor-pointer transition-transform duration-300 relative border-4 border-primary hover:scale-105"
                 onMouseEnter={() => setSelectedAchievement(achievement)}
               >
                 <Image
