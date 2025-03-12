@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function NewHeroSection() {
   return (
-    <main className="px-4 sm:px-8 lg:px-16">
-      <section className="border-4 border-primary p-6 sm:p-10 lg:p-16 max-w-6xl mx-auto">
+    <main className="">
+      <section className="border-4 border-primary p-6 sm:p-10 lg:p-16 ">
         <div className="text-center space-y-6">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-primary pb-6 md:pb-12 max-w-4xl mx-auto">
             Optimizing Every Click with Data
@@ -33,7 +33,7 @@ export default function NewHeroSection() {
         </div>
       </section>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 md:mt-16 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10 md:mt-16 mx-auto">
         {[
           "Trusted by Premium Clients",
           "Global Reach & Scale",
