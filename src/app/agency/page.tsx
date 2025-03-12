@@ -84,9 +84,6 @@ const page = () => {
   ];
   return (
     <div className="px-2 py-2 md:px-12 md:py-8">
-      {/* <div className="py-8">
-        <Achievements />
-      </div> */}
       <div className="py-2 md:py-8">
         <NewHeroSection />
       </div>

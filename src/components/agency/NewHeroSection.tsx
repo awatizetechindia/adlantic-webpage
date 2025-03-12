@@ -25,7 +25,7 @@ export default function NewHeroSection() {
           </div>
 
           <Link
-            href="/contact"
+            href="/support"
             className="text-lg sm:text-2xl md:text-3xl inline-block bg-primary text-white px-12 sm:px-20 lg:px-32 py-3 sm:py-4 font-semibold hover:bg-blue-700 transition-colors w-full sm:w-auto"
           >
             CTA
