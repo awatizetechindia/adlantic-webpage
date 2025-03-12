@@ -24,7 +24,7 @@ const Services = ({ services }: ServicesProps) => {
         </h1>
       </div>
 
-      <div className="px-4 md:px-0">
+      <div className="">
         <div className="grid grid-cols-1 md:grid-cols-2 border-4 border-primary">
           <div className="h-full flex flex-col justify-between p-4 gap-4">
             {services.map((service, index) => (
@@ -44,7 +44,7 @@ const Services = ({ services }: ServicesProps) => {
             ))}
           </div>
 
-          <div className="relative p-4">
+          <div className="relative p-4 order-first">
             <div className="h-[400px] md:h-full w-full relative">
               <Image
                 src={selectedService.image}
