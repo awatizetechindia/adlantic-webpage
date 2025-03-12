@@ -24,7 +24,7 @@ const AchievementsLong: React.FC<AchievementsLongProps> = ({
       </div>
 
       {/* Achievement Cards */}
-      <div className="space-y-4 md:space-y-6 px-4 md:px-0">
+      <div className="space-y-4 md:space-y-6">
         {achievements.map((achievement, index) => (
           <div
             key={index}
