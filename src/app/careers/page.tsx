@@ -101,7 +101,7 @@ const page = () => {
         <div className="flex items-center w-fit justify-center gap-4 px-6 py-3 bg-primary mx-auto text-white font-bold hover:scale-125 transition-all duration-300 ease-in-out cursor-pointer">
           <h1 className="text-3xl">Let&apos;s work together</h1>
           <Image
-            src="/svgs/business_center_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg"
+            src="/business_center_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg"
             alt="AdLantic"
             width={40}
             height={40}

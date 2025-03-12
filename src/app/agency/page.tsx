@@ -19,14 +19,14 @@ const page = () => {
     {
       title: "Brand Awareness",
       items: ["Brand Strategy", "Brand Identity", "Brand Positioning"],
-      image: "/services/data-company-office.svg",
+      image: "/assets/flowers.png",
       description:
         "Build a strong, memorable brand that connects with your target audience and drives recognition.",
     },
     {
       title: "Performance Marketing",
       items: ["PPC Campaigns", "Conversion Optimization", "ROI Tracking"],
-      image: "/services/marketing-and-data-info-graphics.svg",
+      image: "/assets/line-art-of-marketing-agency.png",
       description:
         "Drive measurable results through data-driven performance marketing strategies.",
     },
@@ -37,7 +37,7 @@ const page = () => {
         "Community Management",
         "Social Advertising",
       ],
-      image: "/services/marketing-agency-office.svg",
+      image: "/assets/line-art-of-trust.png",
       description:
         "Engage your audience and build brand presence across social media platforms.",
     },
@@ -83,17 +83,17 @@ const page = () => {
     },
   ];
   return (
-    <div className="px-12 py-8">
+    <div className="px-2 py-2 md:px-12 md:py-8">
       {/* <div className="py-8">
         <Achievements />
       </div> */}
-      <div className="py-8">
+      <div className="py-2 md:py-8">
         <NewHeroSection />
       </div>
-      <div className="py-8">
+      <div className="py-2 md:py-8">
         <AchievementsLong achievements={achievements} />
       </div>
-      <div className="py-8">
+      <div className="py-2 md:py-8">
         <Attention services={services} />
       </div>
       {/* <div className="py-8">
@@ -104,10 +104,10 @@ const page = () => {
           boldClaims={boldClaims}
         />
       </div> */}
-      <div className="py-8">
+      <div className="py-2 md:py-8">
         <CTA />
       </div>
-      <div className="py-8">
+      <div className="py-2 md:py-8">
         <Footer />
       </div>
     </div>
