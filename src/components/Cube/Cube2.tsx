@@ -58,40 +58,49 @@ export default function CubeComponent() {
 
 const Cube = ({ size = 3.6 }) => {
   const mesh = useRef<Mesh>(null);
-  const [targetRotation, setTargetRotation] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const rotationSpeed = 0.1; // Adjust this to control animation speed
+  const [isDragging, setIsDragging] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const autoRotationSpeed = 0.005; // Increased for smoother rotation
+  const pauseDuration = 0; // 0 seconds pause
+  const snapAngle = Math.PI / 2; // 90 degrees
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTargetRotation((prev) => prev + Math.PI / 2); // 90 degree rotation
-      setIsAnimating(true);
-    }, 5000); // Trigger every 5 seconds
-
-    return () => clearInterval(interval);
-  }, []);
-
-  useFrame(() => {
-    if (!mesh.current) return;
-
-    if (isAnimating) {
-      const currentRotation = mesh.current.rotation.y;
-      const difference = targetRotation - currentRotation;
-
-      if (Math.abs(difference) < 0.01) {
-        mesh.current.rotation.y = targetRotation;
-        setIsAnimating(false);
-      } else {
-        mesh.current.rotation.y += difference * rotationSpeed;
-      }
-    }
-  });
-
-  // const texture_1 = useLoader(TextureLoader, "/textures/texture1.png");
+  // Load textures
   const texture_1 = useLoader(TextureLoader, "/textures/texture3.png");
   const texture_2 = useLoader(TextureLoader, "/textures/texture4.png");
   const texture_3 = useLoader(TextureLoader, "/textures/texture5.png");
   const texture_4 = useLoader(TextureLoader, "/textures/texture6.png");
+
+  // Handle drag state
+  useEffect(() => {
+    const handlePointerDown = () => setIsDragging(true);
+    const handlePointerUp = () => setIsDragging(false);
+
+    window.addEventListener("pointerdown", handlePointerDown);
+    window.addEventListener("pointerup", handlePointerUp);
+
+    return () => {
+      window.removeEventListener("pointerdown", handlePointerDown);
+      window.removeEventListener("pointerup", handlePointerUp);
+    };
+  }, []);
+
+  // Auto-rotation animation with pausing
+  useFrame(() => {
+    if (!mesh.current || isDragging || isPaused) return;
+
+    const currentRotation = mesh.current.rotation.y;
+    const normalizedRotation = currentRotation % (Math.PI * 2);
+    const isAtSnapPoint = Math.abs(normalizedRotation % snapAngle) < 0.01;
+
+    if (isAtSnapPoint) {
+      setIsPaused(true);
+      setTimeout(() => {
+        setIsPaused(false);
+      }, pauseDuration);
+    }
+
+    mesh.current.rotation.y += autoRotationSpeed;
+  });
 
   return (
     <mesh ref={mesh} position={[0, 0, 0]}>
