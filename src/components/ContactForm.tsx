@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-
+import axios from "axios";
 // Input component
 const InputField = ({
   name,
@@ -45,10 +45,14 @@ const ContactForm = () => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log(formData);
+
+    const response = await axios.post("/api/store-data", formData, {
+      headers: { "Content-Type": "application/json" },
+    });
+
+    console.log(response.data.message);
   };
 
   return (
