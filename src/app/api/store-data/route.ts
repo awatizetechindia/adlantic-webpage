@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { google } from "googleapis";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -20,7 +21,7 @@ export async function POST(req: NextRequest) {
       scopes: ["https://www.googleapis.com/auth/spreadsheets"],
     });
 
-    const client = await auth.getClient(); // No need for OAuth2Client
+    const client = await auth.getClient();
     const sheets = google.sheets({ version: "v4", auth: client as any });
 
     // Your Google Spreadsheet Details
