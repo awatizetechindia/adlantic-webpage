@@ -65,10 +65,10 @@ const Cube = ({ size = 3.6 }) => {
   const snapAngle = Math.PI / 2; // 90 degrees
 
   // Load textures
-  const texture_1 = useLoader(TextureLoader, "/textures/texture3.png");
-  const texture_2 = useLoader(TextureLoader, "/textures/texture4.png");
-  const texture_3 = useLoader(TextureLoader, "/textures/texture5.png");
-  const texture_4 = useLoader(TextureLoader, "/textures/texture6.png");
+  const texture_1 = useLoader(TextureLoader, "/textures/new-texture-1.png");
+  const texture_2 = useLoader(TextureLoader, "/textures/new-texture-2.png");
+  const texture_3 = useLoader(TextureLoader, "/textures/new-texture-3.png");
+  const texture_4 = useLoader(TextureLoader, "/textures/new-texture-4.png");
 
   // Handle drag state
   useEffect(() => {
