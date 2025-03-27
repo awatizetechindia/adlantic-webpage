@@ -165,26 +165,32 @@ const FlowChart: React.FC = () => {
     <div className="bg-primary p-6 sm:p-8 md:p-12">
       <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-12 md:gap-20">
         {mobileOrder.map((index) => (
-          <FlowBlock
-            key={index}
-            title={blocks[index].title}
-            items={blocks[index].items}
-            arrowDirection={
-              blocks[index].arrowDirection as
-                | "left"
-                | "right"
-                | "down"
-                | "up"
-                | undefined
-            }
-            arrowClassName={
-              blocks[index].arrowDirection === "right"
-                ? "hidden md:block absolute top-1/2 -right-10 -translate-y-1/2"
-                : blocks[index].arrowDirection === "left"
-                ? "hidden md:block absolute top-1/2 -left-10 -translate-y-1/2 rotate-90"
-                : "hidden md:block absolute -bottom-10 left-1/2 -translate-x-1/2"
-            }
-          />
+          <div key={index}>
+            <FlowBlock
+              title={blocks[index].title}
+              items={blocks[index].items}
+              arrowDirection={
+                blocks[index].arrowDirection as
+                  | "left"
+                  | "right"
+                  | "down"
+                  | "up"
+                  | undefined
+              }
+              arrowClassName={
+                blocks[index].arrowDirection === "right"
+                  ? "hidden md:block absolute top-1/2 -right-10 -translate-y-1/2"
+                  : blocks[index].arrowDirection === "left"
+                  ? "hidden md:block absolute top-1/2 -left-10 -translate-y-1/2 rotate-90"
+                  : "hidden md:block absolute -bottom-10 left-1/2 -translate-x-1/2"
+              }
+            />
+            {isMobile && (
+              <div className="w-full flex justify-center items-center py-2">
+                <Arrow direction={"down"} className="" />
+              </div>
+            )}
+          </div>
         ))}
       </div>
     </div>
