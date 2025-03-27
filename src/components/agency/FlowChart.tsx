@@ -30,7 +30,7 @@ const FlowBlock: React.FC<{
   arrowDirection?: "left" | "right" | "down" | "up";
   arrowClassName?: string;
 }> = ({ title, items, arrowDirection, arrowClassName }) => (
-  <div className="relative bg-white p-6">
+  <div className="relative bg-white p-6 min-h-[280px] h-full">
     <h3 className="bg-primary text-white p-2 mb-4 text-center font-black text-xl sm:text-2xl md:text-3xl">
       {title}
     </h3>
@@ -40,7 +40,7 @@ const FlowBlock: React.FC<{
       ))}
     </ul>
     {arrowDirection && (
-      <Arrow direction={arrowDirection} className={arrowClassName} />
+      <Arrow direction={arrowDirection} className={`${arrowClassName}`} />
     )}
   </div>
 );
@@ -99,58 +99,6 @@ const FlowChart: React.FC = () => {
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
-      //   setBlocks([
-      //     {
-      //       title: "Publisher Joins DSP",
-      //       items: ["Signs up & gets approved", "Sets up payment details"],
-      //       arrowDirection: "right",
-      //     },
-      //     {
-      //       title: "Dashboard Overview",
-      //       items: [
-      //         "Earnings summary",
-      //         "Active campaigns",
-      //         "Performance metrics",
-      //       ],
-      //       arrowDirection: "right",
-      //     },
-      //     {
-      //       title: "Campaign Selection",
-      //       items: [
-      //         "Advertisers' offers",
-      //         "Commission structure (CPA, CPC, Rev-Share)",
-      //         "Ad formats (Banners, Native, Pop-ups)",
-      //       ],
-      //       arrowDirection: "down",
-      //     },
-      //     {
-      //       title: "Tracking & Reporting",
-      //       items: [
-      //         "Unique affiliate links",
-      //         "Conversion tracking",
-      //         "Click-through rates (CTR), impressions",
-      //       ],
-      //       arrowDirection: "left",
-      //     },
-      //     {
-      //       title: "Performance Analysis",
-      //       items: [
-      //         "Real-time reports",
-      //         "Best-performing campaigns",
-      //         "User demographics",
-      //       ],
-      //       arrowDirection: "left", // No arrow for the last block
-      //     },
-      //     {
-      //       title: "Payout & Earnings",
-      //       items: [
-      //         "Payment modes (Bank Transfer, PayPal, Crypto)",
-      //         "Withdrawal schedules",
-      //         "Earnings reports",
-      //       ],
-      //       arrowDirection: undefined,
-      //     },
-      //   ]);
     };
 
     handleResize(); // Check on initial render
@@ -185,8 +133,8 @@ const FlowChart: React.FC = () => {
                   : "hidden md:block absolute -bottom-10 left-1/2 -translate-x-1/2"
               }
             />
-            {isMobile && (
-              <div className="w-full flex justify-center items-center py-2">
+            {isMobile && index !== 3 && (
+              <div className="relative scale-75 w-full flex justify-center items-center">
                 <Arrow direction={"down"} className="" />
               </div>
             )}
