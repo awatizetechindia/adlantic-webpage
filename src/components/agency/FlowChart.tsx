@@ -48,7 +48,7 @@ const FlowBlock: React.FC<{
 const FlowChart: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
 
-  const [blocks, setBlocks] = useState([
+  const [blocks] = useState([
     {
       title: "Publisher Joins DSP",
       items: ["Signs up & gets approved", "Sets up payment details"],
