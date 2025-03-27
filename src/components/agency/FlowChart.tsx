@@ -30,7 +30,7 @@ const FlowBlock: React.FC<{
   arrowDirection?: "left" | "right" | "down" | "up";
   arrowClassName?: string;
 }> = ({ title, items, arrowDirection, arrowClassName }) => (
-  <div className="relative bg-white p-6">
+  <div className="relative bg-white p-6 min-h-[280px] h-full">
     <h3 className="bg-primary text-white p-2 mb-4 text-center font-black text-xl sm:text-2xl md:text-3xl">
       {title}
     </h3>
